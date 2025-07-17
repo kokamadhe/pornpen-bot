@@ -22,6 +22,10 @@ def send_photo(chat_id, image_url):
         "photo": image_url
     })
 
+@app.route("/", methods=["GET"])
+def index():
+    return "Pornpen bot is running. Use Telegram to chat with me!"
+
 @app.route("/", methods=["POST"])
 def webhook():
     data = request.get_json()
@@ -69,3 +73,5 @@ def webhook():
                 send_message(chat_id, f"⚠️ Error: {str(e)}")
 
     return "ok"
+
+
